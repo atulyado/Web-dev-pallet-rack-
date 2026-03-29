@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+  FILE: pages/detail.html
+  PAGE: Product Detail
+  DESC: Shows full details for a single product — image placeholder,
+        specs grid, description, and action buttons.
+        Product data is read from sessionStorage (set by search.js)
+        and populated by js/detail.js.
+  NAV:  Reached by clicking "View Details" on any search result card.
+        "← Back to Search" link returns to search.html.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stow Solution — Product Detail</title>
+
+  <!-- Global design system -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Page-specific styles (detail grid, specs, action buttons) -->
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<!--
+  data-page="detail"
+  Tells main.js to apply .nav-active to the "Products" nav link
+  (detail is a sub-page of the Products section).
+-->
+<body data-page="detail">
+
+  <!-- Navbar injected by js/main.js -->
+  <div id="navbar-placeholder"></div>
+
+
+  <main>
+    <div class="container">
+      <div class="detail-page-inner">
+
+        <!-- Wireframe identifier label -->
+        <span class="page-label">Wireframe Page: Product Detail</span>
+
+        <!-- Back navigation -->
+        <a class="back-nav" href="search.html">← Back to Search</a>
+
+
+        <!-- ────────────────────────────────────────────────────
+             DETAIL GRID
+             Two equal columns: image (left) | product info (right).
+             On mobile this stacks to a single column (see pages.css).
+        ──────────────────────────────────────────────────────── -->
+        <div class="detail-grid">
+
+          <!-- ── LEFT: Product Image ── -->
+          <div>
+            <div class="detail-image-wrap">
+
+              <!-- Inner dashed placeholder (replace with <img> in production) -->
+              <div class="detail-image-inner">
+                Product Image Placeholder
+              </div>
+
+              <!-- Type badge overlaid on top-left corner of image.
+                   Populated by detail.js -->
+              <div class="detail-type-badge" id="detail-type-badge">
+                SELECTIVE
+              </div>
+
+            </div>
+          </div>
+          <!-- /left column -->
+
+
+          <!-- ── RIGHT: Product Information ── -->
+          <div>
+
+            <!-- Header: ID, name, price
+                 All text content is set by detail.js -->
+            <div class="detail-header">
+              <div class="detail-product-id" id="detail-product-id">
+                Product ID: R-001
+              </div>
+              <h1 class="detail-name" id="detail-product-name">
+                Heavy Duty Selective
+              </h1>
+              <div class="detail-price" id="detail-product-price">
+                $1,250.00
+              </div>
+            </div>
+
+            <!-- Specifications grid (2 columns, dimensions spans both) -->
+            <div class="specs-grid">
+
+              <div>
+                <div class="spec-label">Rack Type</div>
+                <div class="spec-value" id="detail-spec-type">Selective</div>
+              </div>
+
+              <div>
+                <div class="spec-label">Load Capacity</div>
+                <div class="spec-value" id="detail-spec-cap">1500 kg</div>
+              </div>
+
+              <!-- Spans full width -->
+              <div class="spec-full">
+                <div class="spec-label">Dimensions</div>
+                <div class="spec-value" id="detail-spec-dim">
+                  240cm W x 100cm D x 360cm H
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Description -->
+            <div class="detail-desc-heading">Description</div>
+            <p class="detail-desc-body" id="detail-description">
+              Our Selective Pallet Rack is the most common storage system in
+              the industry. It provides 100% accessibility to every pallet
+              location. Ideal for warehouses with a wide variety of SKUs and
+              high turnover rates.
+            </p>
+
+            <!-- Action buttons -->
+            <div class="detail-actions">
+
+              <!-- Primary CTA — no action in wireframe -->
+              <button class="detail-quote-btn">Request Quote</button>
+
+              <!-- Favourite/save icon button — no action in wireframe -->
+              <button class="detail-fav-btn" title="Save to favourites">
+                <div class="detail-fav-icon"></div>
+              </button>
+
+            </div>
+
+          </div>
+          <!-- /right column -->
+
+        </div>
+        <!-- /detail grid -->
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer injected by js/main.js -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts — main.js first (provides PRODUCTS), then detail.js -->
+  <script src="../js/main.js"></script>
+  <script src="../js/detail.js"></script>
+
+</body>
+</html>

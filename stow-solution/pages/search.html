@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+  FILE: pages/search.html
+  PAGE: Product Search
+  DESC: Displays a filter form (name, rack type, load capacity) above a
+        vertical list of product result cards. Clicking "View Details"
+        saves the product ID to sessionStorage and opens detail.html.
+  NAV:  Reached via the "Products" nav link or the "Explore Products" CTA
+        on the home page.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stow Solution — Product Search</title>
+
+  <!-- Global design system -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Page-specific styles (search filters, result cards) -->
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<!--
+  data-page="search"
+  Tells main.js to apply .nav-active to the "Products" nav link.
+-->
+<body data-page="search">
+
+  <!-- Navbar injected by js/main.js -->
+  <div id="navbar-placeholder"></div>
+
+
+  <main>
+    <div class="container">
+      <div class="search-page-inner">
+
+        <!-- Wireframe identifier label -->
+        <span class="page-label">Wireframe Page: Product Search</span>
+
+        <!-- Page title -->
+        <h1 class="search-page-title">Product Search</h1>
+
+        <!-- ────────────────────────────────────────────────────
+             FILTER FORM
+             4-column grid: 3 filter inputs + 1 search button.
+             NOTE: Filtering is not implemented (wireframe only).
+                   The "Search" button has no effect on results.
+        ──────────────────────────────────────────────────────── -->
+        <div class="search-filter-box">
+          <div class="search-filter-grid">
+
+            <!-- Filter 1: Product Name (free text) -->
+            <div>
+              <label class="form-label" for="filter-name">Product Name</label>
+              <input
+                class="input"
+                type="text"
+                id="filter-name"
+                placeholder="Search by name..."
+              >
+            </div>
+
+            <!-- Filter 2: Rack Type (dropdown) -->
+            <div>
+              <label class="form-label" for="filter-type">Rack Type</label>
+              <select class="select" id="filter-type">
+                <option>All Types</option>
+                <option>Selective</option>
+                <option>Drive-In</option>
+                <option>Cantilever</option>
+                <option>Custom</option>
+              </select>
+            </div>
+
+            <!-- Filter 3: Load Capacity (dropdown) -->
+            <div>
+              <label class="form-label" for="filter-cap">Load Capacity</label>
+              <select class="select" id="filter-cap">
+                <option>Any Capacity</option>
+                <option>Under 500 kg</option>
+                <option>500 - 1500 kg</option>
+                <option>1500+ kg</option>
+              </select>
+            </div>
+
+            <!-- Search button (wireframe: no filtering logic) -->
+            <div>
+              <button class="search-submit-btn">Search</button>
+            </div>
+
+          </div>
+        </div>
+        <!-- /filter form -->
+
+
+        <!-- ────────────────────────────────────────────────────
+             RESULTS LIST
+             Heading shows count. Cards are rendered by search.js.
+        ──────────────────────────────────────────────────────── -->
+        <div class="results-heading" id="results-heading">
+          Results (5)
+        </div>
+
+        <!-- js/search.js injects a .result-card for each product here -->
+        <div class="results-list" id="results-list">
+          <!-- populated by search.js -->
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer injected by js/main.js -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts — main.js first (provides PRODUCTS array), then search.js -->
+  <script src="../js/main.js"></script>
+  <script src="../js/search.js"></script>
+
+</body>
+</html>

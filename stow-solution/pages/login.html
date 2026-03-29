@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  FILE: pages/login.html
+  PAGE: Admin Login
+  DESC: Restricted access login form. Submitting the form navigates
+        directly to the Admin Dashboard (no real authentication — wireframe only).
+  NAV:  Reached via the "Admin Login" button in the navbar.
+        "Back to Home" link returns to index.html.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stow Solution — Admin Login</title>
+
+  <!-- Global design system -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Page-specific styles (login card, centered layout) -->
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<!--
+  data-page="login"
+  Tells main.js to apply .nav-admin-active to the "Admin Login" nav button.
+-->
+<body data-page="login">
+
+  <!-- Navbar injected by js/main.js -->
+  <div id="navbar-placeholder"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN — full-height centered layout (handled by .login-page-wrapper)
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="login-page-wrapper">
+
+    <!-- Wireframe identifier label -->
+    <div style="width:100%; max-width:1280px; padding: 0 48px; margin-bottom:16px;">
+      <span class="page-label">Wireframe Page: Admin Login</span>
+    </div>
+
+    <!-- ────────────────────────────────────────────────────
+         LOGIN CARD
+         Max-width 448px card, centered on the page.
+    ──────────────────────────────────────────────────────── -->
+    <div class="login-card">
+
+      <!-- Header -->
+      <h1 class="login-title">Admin Login</h1>
+      <p class="login-subtitle">Restricted Access</p>
+
+      <!-- Form — no real authentication, submit goes straight to admin -->
+      <form
+        class="login-form"
+        onsubmit="handleLogin(event)"
+      >
+
+        <!-- Username field -->
+        <div>
+          <label class="form-label" for="username">Username</label>
+          <input
+            class="input"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username"
+            autocomplete="username"
+          >
+        </div>
+
+        <!-- Password field -->
+        <div>
+          <label class="form-label" for="password">Password</label>
+          <input
+            class="input"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            autocomplete="current-password"
+          >
+        </div>
+
+        <!-- Submit -->
+        <button class="login-submit-btn" type="submit">Login</button>
+
+      </form>
+
+      <!-- Back to Home link -->
+      <a class="login-back-link" href="../index.html">← Back to Home</a>
+
+    </div>
+
+  </main>
+
+
+  <!-- Footer injected by js/main.js -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script>
+    /**
+     * handleLogin
+     * Intercepts the form submit so the page doesn't reload.
+     * In a real app this would send credentials to a server.
+     * Wireframe only: navigates straight to the admin dashboard.
+     */
+    function handleLogin(event) {
+      event.preventDefault(); // prevent default browser form submit
+      window.location.href = 'admin.html';
+    }
+  </script>
+
+</body>
+</html>

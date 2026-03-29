@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+  FILE: pages/team.html
+  PAGE: Team
+  DESC: Displays a 3-column grid of 6 team member cards, each with a
+        photo placeholder, name, student ID, divider, and role.
+        No interactive elements — purely informational.
+  NAV:  Reached via the "Team" nav link from any page.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stow Solution — Meet the Team</title>
+
+  <!-- Global design system -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Page-specific styles (team grid, member cards) -->
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<!--
+  data-page="team"
+  Tells main.js to apply .nav-active to the "Team" nav link.
+-->
+<body data-page="team">
+
+  <!-- Navbar injected by js/main.js -->
+  <div id="navbar-placeholder"></div>
+
+
+  <main>
+    <div class="container">
+      <div class="team-page-inner">
+
+        <!-- Wireframe identifier label -->
+        <span class="page-label">Wireframe Page: Team</span>
+
+        <!-- ────────────────────────────────────────────────────
+             PAGE HEADER — centered title, subtitle, decorative line
+        ──────────────────────────────────────────────────────── -->
+        <div class="team-header">
+          <h1 class="team-page-title">Meet the Team</h1>
+          <p class="team-page-subtitle">Academic Project Wireframe Submission</p>
+          <!-- Short horizontal rule for visual decoration -->
+          <div class="team-header-line"></div>
+        </div>
+
+
+        <!-- ────────────────────────────────────────────────────
+             TEAM GRID — 3 columns desktop, 2 tablet, 1 mobile
+        ──────────────────────────────────────────────────────── -->
+        <div class="team-grid">
+
+          <!-- Member 1 -->
+          <div class="team-card">
+            <div class="team-photo">Photo Placeholder</div>
+            <div class="team-member-name">John Doe</div>
+            <div class="team-member-id">STUD-001</div>
+            <div class="team-card-divider">
+              <div class="team-member-role">Project Lead / Designer</div>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="team-card">
+            <div class="team-photo">Photo Placeholder</div>
+            <div class="team-member-name">Jane Smith</div>
+            <div class="team-member-id">STUD-002</div>
+            <div class="team-card-divider">
+              <div class="team-member-role">System Architect</div>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="team-card">
+            <div class="team-photo">Photo Placeholder</div>
+            <div class="team-member-name">Michael Chen</div>
+            <div class="team-member-id">STUD-003</div>
+            <div class="team-card-divider">
+              <div class="team-member-role">Backend Developer</div>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="team-card">
+            <div class="team-photo">Photo Placeholder</div>
+            <div class="team-member-name">Sarah Wilson</div>
+            <div class="team-member-id">STUD-004</div>
+            <div class="team-card-divider">
+              <div class="team-member-role">Frontend Specialist</div>
+            </div>
+          </div>
+
+          <!-- Member 5 -->
+          <div class="team-card">
+            <div class="team-photo">Photo Placeholder</div>
+            <div class="team-member-name">Robert Brown</div>
+            <div class="team-member-id">STUD-005</div>
+            <div class="team-card-divider">
+              <div class="team-member-role">Content Strategist</div>
+            </div>
+          </div>
+
+          <!-- Member 6 -->
+          <div class="team-card">
+            <div class="team-photo">Photo Placeholder</div>
+            <div class="team-member-name">Emily Davis</div>
+            <div class="team-member-id">STUD-006</div>
+            <div class="team-card-divider">
+              <div class="team-member-role">QA Engineer</div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /team grid -->
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer injected by js/main.js -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts — only main.js needed (no page-specific logic on team page) -->
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

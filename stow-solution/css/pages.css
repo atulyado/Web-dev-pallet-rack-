@@ -1,0 +1,1061 @@
+/* =============================================================================
+   STOW SOLUTION — PAGE-SPECIFIC STYLES
+   File: css/pages.css
+   Purpose: Styles that belong to ONE specific page only.
+            Shared/global styles are in css/styles.css.
+   
+   Sections:
+     1.  Home Page          — Hero, Services grid, Why Choose Us
+     2.  Login Page         — Centered form card
+     3.  Search Page        — Filter form, result cards
+     4.  Detail Page        — Two-column product layout
+     5.  Admin Page         — Dashboard header, table, form view
+     6.  Team Page          — Member card grid
+   ============================================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   1. HOME PAGE  (index.html)
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Hero — full-width split layout */
+.hero {
+  padding: 80px 0;
+  border-bottom: 2px solid var(--gray-200);
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-left  { flex: 1; }
+.hero-right { flex: 1; }
+
+.hero-heading {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.hero-subheading {
+  font-size: 20px;
+  color: var(--gray-600);
+  max-width: 560px;
+  line-height: 1.5;
+  margin-top: 24px;
+}
+
+.hero-cta {
+  margin-top: 24px;
+}
+
+/* 16:9 hero image placeholder */
+.hero-image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+/* ── Services Section ── */
+.section-services {
+  padding: 80px 0;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.service-card {
+  border: 2px solid var(--gray-300);
+  padding: 24px;
+}
+
+/* Numbered icon in top-left of each card */
+.service-card-number {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--gray-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.service-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+.service-card-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ── Why Choose Us Section ── */
+.section-why {
+  padding: 80px 0;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.why-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Circular icon with inner dot */
+.why-icon {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--gray-300);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.why-icon-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--gray-800);
+  border-radius: 50%;
+}
+
+.why-item-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.why-item-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* ── Home Responsive ── */
+@media (max-width: 768px) {
+  .hero                { flex-direction: column; padding: 48px 0; }
+  .hero-heading        { font-size: 36px; }
+  .services-grid       { grid-template-columns: repeat(2, 1fr); }
+  .why-grid            { grid-template-columns: 1fr; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2. LOGIN PAGE  (pages/login.html)
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Full-height centered layout */
+.login-page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  /* Slides up from below instead of plain fade */
+  animation: slideUp 500ms ease;
+}
+
+/* The white bordered card */
+.login-card {
+  max-width: 448px;
+  width: 100%;
+  border: 2px solid var(--gray-800);
+  padding: 32px;
+}
+
+.login-title {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.login-subtitle {
+  font-size: 12px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--gray-800);
+  color: var(--white);
+  border: 2px solid var(--gray-800);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 200ms, color 200ms;
+  margin-top: 8px;
+}
+.login-submit-btn:hover {
+  background: var(--white);
+  color: var(--gray-800);
+}
+
+.login-back-link {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: var(--black);
+  cursor: pointer;
+}
+.login-back-link:hover { text-decoration: none; }
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3. SEARCH PAGE  (pages/search.html)
+───────────────────────────────────────────────────────────────────────────── */
+
+.search-page-inner {
+  padding: 48px 0;
+}
+
+.search-page-title {
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* Search filter form container */
+.search-filter-box {
+  border: 2px solid var(--gray-800);
+  padding: 24px;
+  margin-bottom: 48px;
+}
+
+/* Four-column form: 3 inputs + 1 button */
+.search-filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 24px;
+  align-items: end;
+}
+
+.search-submit-btn {
+  padding: 12px 24px;
+  background: var(--gray-800);
+  color: var(--white);
+  border: 2px solid var(--gray-800);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 200ms, color 200ms;
+}
+.search-submit-btn:hover {
+  background: var(--white);
+  color: var(--gray-800);
+}
+
+/* Results list header */
+.results-heading {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--gray-100);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+/* Vertical stack of result cards */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Individual result card */
+.result-card {
+  border: 2px solid var(--gray-300);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background: var(--white);
+  cursor: default;
+  transition: border-color 300ms;
+}
+.result-card:hover { border-color: var(--gray-800); }
+
+.result-card-left  { flex: 1; min-width: 0; }
+.result-card-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-shrink: 0;
+}
+
+/* Type badge and ID row */
+.result-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.result-badge {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--gray-100);
+  padding: 4px 8px;
+}
+
+.result-id {
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.result-name {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.result-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 480px;
+}
+
+.result-capacity-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  text-align: right;
+}
+.result-capacity-value {
+  font-weight: 700;
+  text-align: right;
+}
+
+/* "View Details" button inside result card */
+.result-view-btn {
+  padding: 12px 24px;
+  border: 2px solid var(--gray-800);
+  background: var(--white);
+  color: var(--gray-800);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 300ms, color 300ms;
+}
+/* Button fills when parent card is hovered */
+.result-card:hover .result-view-btn {
+  background: var(--gray-800);
+  color: var(--white);
+}
+
+/* ── Search Responsive ── */
+@media (max-width: 768px) {
+  .search-filter-grid { grid-template-columns: 1fr; }
+  .result-card        { flex-direction: column; align-items: flex-start; }
+  .result-card-right  { width: 100%; justify-content: space-between; }
+  .result-desc        { max-width: 100%; white-space: normal; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4. PRODUCT DETAIL PAGE  (pages/detail.html)
+───────────────────────────────────────────────────────────────────────────── */
+
+.detail-page-inner {
+  padding: 48px 0;
+}
+
+/* Back navigation link */
+.back-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gray-900);
+  margin-bottom: 32px;
+}
+.back-nav:hover { text-decoration: underline; }
+
+/* Two-column layout: image | info */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+/* Square image placeholder with heavy border */
+.detail-image-wrap {
+  aspect-ratio: 1 / 1;
+  border: 4px solid var(--gray-300);
+  background: var(--gray-50);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-image-inner {
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  border: 2px dashed var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--gray-300);
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 48px;
+}
+
+/* Type badge overlaid on top-left corner of image */
+.detail-type-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--white);
+  border: 2px solid var(--gray-800);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Product info section */
+.detail-header {
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.detail-product-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.detail-name {
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.detail-price {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+/* Two-column specs grid */
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.spec-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Dimensions spec spans both columns */
+.spec-full {
+  grid-column: 1 / -1;
+}
+
+.detail-desc-heading {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--gray-100);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-desc-body {
+  color: var(--gray-600);
+  line-height: 1.7;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+/* Action buttons row */
+.detail-actions {
+  display: flex;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.detail-quote-btn {
+  flex: 1;
+  padding: 16px;
+  background: var(--gray-800);
+  color: var(--white);
+  border: 2px solid var(--gray-800);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 200ms, color 200ms;
+}
+.detail-quote-btn:hover {
+  background: var(--white);
+  color: var(--gray-800);
+}
+
+/* Favorite/save icon button (circle outline) */
+.detail-fav-btn {
+  padding: 16px;
+  border: 2px solid var(--gray-300);
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 200ms;
+}
+.detail-fav-btn:hover { border-color: var(--gray-800); }
+
+.detail-fav-icon {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--gray-800);
+  border-radius: 50%;
+}
+
+/* ── Detail Responsive ── */
+@media (max-width: 768px) {
+  .detail-grid  { grid-template-columns: 1fr; }
+  .detail-name  { font-size: 32px; }
+  .specs-grid   { grid-template-columns: 1fr; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   5. ADMIN DASHBOARD PAGE  (pages/admin.html)
+   Has two states: List View (default) and Form View (add/edit).
+───────────────────────────────────────────────────────────────────────────── */
+
+.admin-page-inner {
+  padding: 48px 0;
+}
+
+/* ── State 1: List View ── */
+#admin-list-view {
+  animation: slideUp 500ms ease;
+}
+
+/* Page header row: title + user badge + logout */
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--gray-900);
+  padding-bottom: 32px;
+  margin-bottom: 48px;
+}
+
+.admin-page-title {
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+.admin-page-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-badge {
+  padding: 8px 16px;
+  border: 2px solid var(--gray-300);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Logout — destructive style (red) */
+.logout-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--red-500);
+  color: var(--red-500);
+  background: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 200ms;
+}
+.logout-btn:hover { background: var(--red-50); }
+
+/* Inventory section header row: heading + "Add" button */
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.inventory-title {
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.inventory-subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-top: 4px;
+}
+
+.add-product-btn {
+  padding: 16px 32px;
+  background: var(--gray-900);
+  color: var(--white);
+  border: 2px solid var(--gray-900);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 200ms, color 200ms;
+}
+.add-product-btn:hover {
+  background: var(--white);
+  color: var(--gray-900);
+}
+
+/* Product inventory table */
+.table-wrapper {
+  border: 2px solid var(--gray-300);
+  overflow: hidden;
+  overflow-x: auto; /* horizontal scroll on mobile */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead tr {
+  background: var(--gray-100);
+  border-bottom: 2px solid var(--gray-300);
+}
+
+thead th {
+  padding: 16px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+thead th:last-child { text-align: right; }
+
+tbody tr {
+  border-bottom: 2px solid var(--gray-100);
+  transition: background 300ms;
+}
+tbody tr:last-child  { border-bottom: none; }
+tbody tr:hover       { background: var(--gray-50); }
+
+td { padding: 16px; font-size: 14px; }
+
+.td-id    { font-family: monospace; color: var(--gray-500); }
+.td-name  { font-weight: 900; text-transform: uppercase; }
+.td-price { font-weight: 700; }
+
+.td-actions { text-align: right; }
+.td-actions-inner {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Table action buttons (small) */
+.table-edit-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--gray-200);
+  background: none;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 200ms;
+}
+.table-edit-btn:hover { border-color: var(--gray-900); }
+
+/* Delete — turns red on hover */
+.table-del-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--gray-200);
+  background: none;
+  color: var(--gray-900);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 200ms, color 200ms;
+}
+.table-del-btn:hover {
+  border-color: var(--red-500);
+  color: var(--red-500);
+}
+
+/* Empty state shown when no products exist */
+.table-empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--gray-400);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ── State 2: Form View ── */
+#admin-form-view {
+  display: none; /* hidden by default, shown by JS */
+}
+#admin-form-view.is-visible {
+  display: block;
+  animation: slideInRight 500ms ease;
+}
+
+/* Heavy bordered form card with offset shadow */
+.form-card {
+  max-width: 672px;
+  margin: 0 auto;
+  border: 4px solid var(--gray-900);
+  padding: 32px;
+  background: var(--white);
+  box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Form header: title + back link */
+.form-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--gray-100);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+}
+
+.form-card-title {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.form-back-link {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+  transition: color 200ms;
+}
+.form-back-link:hover { color: var(--gray-900); }
+
+/* Fields stacked vertically */
+.form-fields-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Heavy-weight label for admin form (slightly more prominent than global .form-label) */
+.form-label-heavy {
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+/* Two-column field row */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* Admin form inputs use heavier borders than global inputs */
+.form-input-heavy,
+.form-select-heavy,
+.form-textarea-heavy {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px;
+  background: var(--white);
+  border: 4px solid var(--gray-200);
+  outline: none;
+  transition: border-color 200ms;
+}
+.form-input-heavy::placeholder,
+.form-textarea-heavy::placeholder {
+  text-transform: lowercase;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+.form-input-heavy:focus,
+.form-select-heavy:focus,
+.form-textarea-heavy:focus {
+  border-color: var(--gray-900);
+}
+.form-textarea-heavy { resize: none; }
+
+/* Form action buttons row */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.form-save-btn {
+  flex: 1;
+  padding: 20px;
+  background: var(--gray-900);
+  color: var(--white);
+  border: 4px solid var(--gray-900);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 300ms, color 300ms;
+}
+.form-save-btn:hover   { background: var(--white); color: var(--gray-900); }
+.form-save-btn:active  { transform: scale(0.98); }
+
+.form-discard-btn {
+  padding: 20px 32px;
+  border: 4px solid var(--gray-200);
+  color: var(--gray-400);
+  background: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 300ms, color 300ms;
+}
+.form-discard-btn:hover {
+  border-color: var(--gray-900);
+  color: var(--gray-900);
+}
+
+/* ── Admin Responsive ── */
+@media (max-width: 768px) {
+  .admin-page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .inventory-header  { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .form-row-2        { grid-template-columns: 1fr; }
+  .form-card-title   { font-size: 24px; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   6. TEAM PAGE  (pages/team.html)
+───────────────────────────────────────────────────────────────────────────── */
+
+.team-page-inner {
+  padding: 48px 0;
+}
+
+/* Centered page header */
+.team-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.team-page-title {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.team-page-subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 16px;
+}
+
+/* Short decorative bar below subtitle */
+.team-header-line {
+  width: 96px;
+  height: 4px;
+  background: var(--gray-800);
+  margin: 24px auto 0;
+}
+
+/* Three-column member grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Individual member card */
+.team-card {
+  border: 2px solid var(--gray-300);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--white);
+  transition: border-color 300ms;
+  cursor: default;
+}
+.team-card:hover { border-color: var(--gray-800); }
+
+/* Square photo placeholder */
+.team-photo {
+  width: 128px;
+  height: 128px;
+  border: 2px dashed var(--gray-400);
+  background: var(--gray-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gray-300);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 16px;
+  transition: background 300ms;
+}
+.team-card:hover .team-photo { background: var(--white); }
+
+.team-member-name {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.team-member-id {
+  font-size: 14px;
+  font-family: monospace;
+  color: var(--gray-400);
+}
+
+/* Divider line + role below name */
+.team-card-divider {
+  border-top: 1px solid var(--gray-100);
+  width: 100%;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.team-member-role {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
+}
+
+/* ── Team Responsive ── */
+@media (max-width: 768px) {
+  .team-grid        { grid-template-columns: repeat(2, 1fr); }
+  .team-page-title  { font-size: 36px; }
+}
+
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; }
+}

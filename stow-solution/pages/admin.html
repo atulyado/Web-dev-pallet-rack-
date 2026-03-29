@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+  FILE: pages/admin.html
+  PAGE: Admin Dashboard
+  DESC: Product inventory management page. Has two states:
+          1. LIST VIEW  — default; shows the product table with Edit/Delete.
+          2. FORM VIEW  — shown when adding or editing a product.
+        All CRUD logic is in js/admin.js.
+        Data persists in a JS array for the duration of the session only.
+  NAV:  Reached after submitting the login form (pages/login.html).
+        "Logout" button (with confirmation) returns to index.html.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stow Solution — Admin Dashboard</title>
+
+  <!-- Global design system -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Page-specific styles (admin table, form card, destructive buttons) -->
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<!--
+  data-page="admin"
+  Tells main.js to apply .nav-admin-active to the "Admin Login" nav button.
+-->
+<body data-page="admin">
+
+  <!-- Navbar injected by js/main.js -->
+  <div id="navbar-placeholder"></div>
+
+
+  <main>
+    <div class="container">
+      <div class="admin-page-inner">
+
+        <!-- Wireframe identifier label -->
+        <span class="page-label">Wireframe Page: Admin Dashboard</span>
+
+
+        <!-- ════════════════════════════════════════════════════
+             STATE 1: LIST VIEW  (default, always visible first)
+             js/admin.js hides this and shows #admin-form-view
+             when the user clicks "Add" or "Edit".
+        ════════════════════════════════════════════════════ -->
+        <div id="admin-list-view">
+
+          <!-- Page header row: title + user info + logout -->
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Admin Dashboard</h1>
+              <p class="admin-page-subtitle">Stow Solution Warehouse Management</p>
+            </div>
+            <div class="admin-header-right">
+              <div class="user-badge">Admin: System_User</div>
+              <!-- Logout: confirmation dialog → redirect to home (see admin.js) -->
+              <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            </div>
+          </div>
+
+          <!-- Inventory section header: heading + "Add" button -->
+          <div class="inventory-header">
+            <div>
+              <div class="inventory-title">Product Inventory</div>
+              <div class="inventory-subtitle">
+                Manage your warehouse storage solutions catalog.
+              </div>
+            </div>
+            <!-- Opens form in CREATE mode -->
+            <button class="add-product-btn" onclick="openCreateForm()">
+              + Add New Product
+            </button>
+          </div>
+
+          <!-- ── Product Table ──
+               <tbody> is populated by admin.js renderAdminTable().
+               Rows have Edit and Delete (Del) action buttons.
+               Empty-state message is shown when no products exist. -->
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-tbody">
+                <!-- Rows injected by admin.js -->
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /list view -->
+
+
+        <!-- ════════════════════════════════════════════════════
+             STATE 2: FORM VIEW
+             Hidden by default. Shown by js/admin.js when the user
+             clicks "+ Add New Product" or "Edit" on a table row.
+             The .is-visible class triggers the slide-in animation.
+        ════════════════════════════════════════════════════ -->
+        <div id="admin-form-view">
+
+          <div class="form-card">
+
+            <!-- Form header: title (changes for create vs edit) + back link -->
+            <div class="form-card-header">
+              <div class="form-card-title" id="form-card-title">
+                Create New Product
+              </div>
+              <!-- Returns to list view without saving -->
+              <button class="form-back-link" onclick="discardForm()">
+                ← Back to List
+              </button>
+            </div>
+
+            <!-- ── Form Fields ── -->
+            <div class="form-fields-stack">
+
+              <!-- Field 1: Product Full Name (required) -->
+              <div>
+                <label class="form-label-heavy" for="f-name">
+                  Product Full Name
+                </label>
+                <input
+                  class="form-input-heavy"
+                  type="text"
+                  id="f-name"
+                  placeholder="Ex: Industrial Selective Pallet Rack Beam"
+                  required
+                >
+              </div>
+
+              <!-- Fields 2 & 3: Rack Category + Weight Capacity (2 columns) -->
+              <div class="form-row-2">
+
+                <div>
+                  <label class="form-label-heavy" for="f-type">
+                    Rack Category
+                  </label>
+                  <select class="form-select-heavy" id="f-type">
+                    <option>Selective</option>
+                    <option>Drive-In</option>
+                    <option>Cantilever</option>
+                    <option>Push-Back</option>
+                    <option>Custom</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="form-label-heavy" for="f-cap">
+                    Weight Capacity
+                  </label>
+                  <input
+                    class="form-input-heavy"
+                    type="text"
+                    id="f-cap"
+                    placeholder="e.g. 1000 kg / level"
+                  >
+                </div>
+
+              </div>
+
+              <!-- Fields 4 & 5: Dimensions + Pricing (2 columns) -->
+              <div class="form-row-2">
+
+                <div>
+                  <label class="form-label-heavy" for="f-dim">
+                    Standard Dimensions
+                  </label>
+                  <input
+                    class="form-input-heavy"
+                    type="text"
+                    id="f-dim"
+                    placeholder="W x D x H (cm)"
+                  >
+                </div>
+
+                <div>
+                  <label class="form-label-heavy" for="f-price">
+                    Current Pricing
+                  </label>
+                  <input
+                    class="form-input-heavy"
+                    type="text"
+                    id="f-price"
+                    placeholder="$0.00"
+                    required
+                  >
+                </div>
+
+              </div>
+
+              <!-- Field 6: Technical Specifications (textarea) -->
+              <div>
+                <label class="form-label-heavy" for="f-desc">
+                  Technical Specifications
+                </label>
+                <textarea
+                  class="form-textarea-heavy"
+                  id="f-desc"
+                  rows="4"
+                  placeholder="Detailed description of features and use cases..."
+                ></textarea>
+              </div>
+
+            </div>
+            <!-- /form fields -->
+
+            <!-- Form action buttons -->
+            <div class="form-actions">
+              <!-- Save/Publish — text changes based on mode (set by admin.js) -->
+              <button class="form-save-btn" id="form-save-btn" onclick="saveProduct()">
+                Publish Product
+              </button>
+              <!-- Discard — goes back to list without saving -->
+              <button class="form-discard-btn" onclick="discardForm()">
+                Discard
+              </button>
+            </div>
+
+          </div>
+          <!-- /form card -->
+
+        </div>
+        <!-- /form view -->
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer injected by js/main.js -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts — main.js first (navbar/footer), then admin.js (table/CRUD) -->
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
+
+</body>
+</html>

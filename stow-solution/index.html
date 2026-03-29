@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--
+  FILE: index.html
+  PAGE: Home / Landing Page
+  DESC: The main entry point of the site. Contains the hero section,
+        services overview grid, and "Why Choose Us" feature highlights.
+  NAV:  This is the root file. All other pages are in /pages/.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stow Solution — Home</title>
+
+  <!-- Global design system (colors, typography, navbar, footer, buttons) -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Page-specific styles (hero, services grid, why-choose-us) -->
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<!--
+  data-page="home"
+  This attribute is read by js/main.js to highlight the correct
+  nav link ("HOME") as active.
+-->
+<body data-page="home">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NAVBAR — injected here by js/main.js on DOMContentLoaded
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="navbar-placeholder"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════════════ -->
+  <main>
+    <div class="container">
+
+      <!-- Wireframe identifier label (academic requirement) -->
+      <div style="padding-top: 16px;">
+        <span class="page-label">Wireframe Page: Home</span>
+      </div>
+
+
+      <!-- ────────────────────────────────────────────────────
+           HERO SECTION
+           Split layout: text content left, image placeholder right.
+      ──────────────────────────────────────────────────────── -->
+      <section class="hero">
+
+        <!-- Left: heading, subtext, CTA button -->
+        <div class="hero-left">
+          <h1 class="hero-heading">
+            Pallet Rack &amp;<br>Storage Solutions
+          </h1>
+          <p class="hero-subheading">
+            Maximizing your warehouse space with high-quality industrial
+            racking systems. Safe, reliable, and built to last.
+          </p>
+          <!-- CTA: navigates to product search page -->
+          <a class="btn btn-secondary hero-cta" href="pages/search.html">
+            Explore Products
+          </a>
+        </div>
+
+        <!-- Right: image placeholder (replace with real <img> in production) -->
+        <div class="hero-right">
+          <div class="placeholder hero-image">Hero Image Placeholder</div>
+        </div>
+
+      </section>
+
+
+      <!-- ────────────────────────────────────────────────────
+           SERVICES SECTION
+           4-column grid of service cards.
+      ──────────────────────────────────────────────────────── -->
+      <section class="section-services">
+        <h2 class="heading-2">Our Services</h2>
+
+        <div class="services-grid">
+
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="service-card-number">1</div>
+            <div class="service-card-title">Selective Pallet Rack</div>
+            <p class="service-card-desc">
+              Standard storage solution for easy access to every pallet.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div class="service-card-number">2</div>
+            <div class="service-card-title">Drive-In Rack</div>
+            <p class="service-card-desc">
+              High-density storage for similar products with LIFO access.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div class="service-card-number">3</div>
+            <div class="service-card-title">Cantilever Rack</div>
+            <p class="service-card-desc">
+              Ideal for long or bulky items like lumber, pipe, or furniture.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div class="service-card-number">4</div>
+            <div class="service-card-title">Custom Storage</div>
+            <p class="service-card-desc">
+              Tailored warehouse layouts designed for your specific needs.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ────────────────────────────────────────────────────
+           WHY CHOOSE US SECTION
+           3-column feature highlights with circular icon placeholders.
+      ──────────────────────────────────────────────────────── -->
+      <section class="section-why">
+        <h2 class="heading-2">Why Choose Us</h2>
+
+        <div class="why-grid">
+
+          <!-- Feature 1 -->
+          <div class="why-item">
+            <div class="why-icon">
+              <div class="why-icon-dot"></div>
+            </div>
+            <div class="why-item-title">Durability</div>
+            <p class="why-item-desc">
+              Heavy-duty steel construction for long-term safety.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="why-item">
+            <div class="why-icon">
+              <div class="why-icon-dot"></div>
+            </div>
+            <div class="why-item-title">Efficiency</div>
+            <p class="why-item-desc">
+              Optimized layouts to maximize your cubic foot storage.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="why-item">
+            <div class="why-icon">
+              <div class="why-icon-dot"></div>
+            </div>
+            <div class="why-item-title">Support</div>
+            <p class="why-item-desc">
+              Full installation and maintenance support teams available.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /.container -->
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER — injected here by js/main.js on DOMContentLoaded
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- Scripts — main.js must load first (provides PRODUCTS + navbar/footer) -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
