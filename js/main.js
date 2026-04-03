@@ -93,11 +93,11 @@ function getNavbarHTML() {
       <div class="nav-right">
         <div class="nav-links">
           <a class="nav-link" id="nav-home"    href="../index.html">Home</a>
-          <a class="nav-link" id="nav-products" href="search.html">Products</a>
-          <a class="nav-link" id="nav-team"    href="team.html">Team</a>
+          <a class="nav-link" id="nav-products" href="../pages/search.html">Products</a>
+          <a class="nav-link" id="nav-team"    href="../pages/team.html">Team</a>
         </div>
         <div class="nav-divider"></div>
-        <a class="nav-admin-btn" id="nav-admin-btn" href="login.html">Admin Login</a>
+        <a class="nav-admin-btn" id="nav-admin-btn" href="../pages/login.html">Admin Login</a>
       </div>
     </nav>
   `;
